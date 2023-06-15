@@ -97,12 +97,14 @@ class AudioTranscriber:
         else:
             transcript[0] = (f"{who_spoke}: [{text}]\n\n", time_spoken)
 
+        print(transcript[0])
+
     def get_transcript(self):
         combined_transcript = list(merge(
             self.transcript_data["You"], self.transcript_data["Speaker"], 
             key=lambda x: x[1], reverse=True))
         combined_transcript = combined_transcript[:MAX_PHRASES]
-        return "".join([t[0] for t in combined_transcript])
+        return "".join([t[0] for t in reversed(combined_transcript)])
     
     def clear_transcript_data(self):
         self.transcript_data["You"].clear()
