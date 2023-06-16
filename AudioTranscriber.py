@@ -97,7 +97,7 @@ class AudioTranscriber:
         else:
             transcript[0] = (f"{who_spoke}: [{text}]\n\n", time_spoken)
 
-        print(transcript[0])
+        # print(transcript[0])
 
     def get_transcript(self):
         combined_transcript = list(merge(
